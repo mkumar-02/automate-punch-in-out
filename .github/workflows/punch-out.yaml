@@ -1,1 +1,28 @@
+name: factoHR Punch-Out
 
+on:
+  schedule:
+    - cron: "0 19 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  punch-out:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Punch-Out Script
+        env:
+          FACTOHR_USERNAME: ${{ secrets.FACTOHR_USERNAME }}
+          FACTOHR_PASSWORD: ${{ secrets.FACTOHR_PASSWORD }}
+        run: python punch_out.py
