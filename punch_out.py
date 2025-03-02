@@ -27,7 +27,7 @@ driver.find_element(By.ID, "btnLogin").click()
 time.sleep(15)
 
 # Click Punch-Out
-driver.find_element(By.ID, "Punch Out").click()
+driver.find_element(By.XPATH, "//button[contains(text(), 'Punch Out')]").click()
 
 # Close browser
 time.sleep(10)
