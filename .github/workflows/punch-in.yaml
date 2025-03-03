@@ -2,7 +2,7 @@ name: factoHR Punch-In
 
 on:
   schedule:
-    - cron: "0 3 * * 1-5"
+    - cron: "30 3 * * 1-5"
   workflow_dispatch:
 
 jobs:
